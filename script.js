@@ -37,20 +37,23 @@ function compare_picks(user_value){
     player_pick[1].innerHTML = `<img src="images/${computer_pick}.jpg" class="pick_image" alt="${computer_pick.toUpperCase()}">`;
 
     console.log(`User: ${user_pick}`);
-    console.log(`Computer: ${computer_pick}`)
+    console.log(`Computer: ${computer_pick}`);
 
     if (user_pick == 'bato' && computer_pick == 'gunting'){
         user_score_value += 1;
         computer_score_value = computer_score_value;
         user_score.textContent = `Score: ${user_score_value}`
+        eventUI(true);
     } else if (user_pick == 'gunting' && computer_pick == 'papel'){
         user_score_value += 1;
         computer_score_value = computer_score_value;
         user_score.textContent = `Score: ${user_score_value}`
+        eventUI(true);
     } else if (user_pick == 'papel' && computer_pick == 'bato'){
         user_score_value += 1;
         computer_score_value = computer_score_value;
         user_score.textContent = `Score: ${user_score_value}`
+        eventUI(true);
     } else if (user_pick == computer_pick){
         user_score_value = user_score_value
         computer_score_value = computer_score_value
@@ -58,6 +61,7 @@ function compare_picks(user_value){
         computer_score_value += 1;
         user_score_value = user_score_value;
         computer_score.textContent = `Score: ${computer_score_value}`
+        eventUI(false);
     }
 
     if (count_val_content == 0){
@@ -72,6 +76,29 @@ function compare_picks(user_value){
     }   
 }
 
+function eventUI(isUser){
+    if (isUser == true){
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            overlay.style.background = 'rgba(0, 0, 0, 0.8)';
+            overlay.style.boxShadow = 'inset 0 0 250px rgb(157, 0, 255, 0.7)';
+        }, 500);
+        overlay.style.display = 'block';
+        overlay.style.background = 'transparent';
+        overlay.style.boxShadow = 'inset 0 0 200px rgb(255, 255, 0, 0.7)';
+    }
+    else if (isUser == false) {
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            overlay.style.background = 'rgba(0, 0, 0, 0.8)';
+            overlay.style.boxShadow = 'inset 0 0 250px rgb(157, 0, 255, 0.7)';
+        }, 500);
+        overlay.style.display = 'block';
+        overlay.style.background = 'transparent';
+        overlay.style.boxShadow = 'inset 0 0 250px rgb(255, 0, 0, 0.7)';
+    }
+}
+
 user_moves.forEach(button => {
     button.addEventListener("click", () => {
         compare_picks(button.value);
@@ -82,6 +109,8 @@ user_moves.forEach(button => {
 function showGameOver(winner) {
     modal.style.display = "block";
     overlay.style.display = "block";
+    overlay.style.background = 'rgba(0, 0, 0, 0.8)';
+    overlay.style.boxShadow = 'inset 0 0 250px rgba(157, 0, 255, 0.7)';
     
     if (winner === 'user') modal_message.textContent = "Congrats! 🎉";
     else if (winner === 'computer') modal_message.textContent = "Talo ka! 💀";
