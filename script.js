@@ -1,6 +1,8 @@
 const user_moves = document.querySelectorAll('.user_moves');
 const player_pick = document.getElementsByClassName("player_pick");
 
+const marquee = document.getElementsByTagName('marquee');
+
 let count_val = document.getElementById("count_val");
 let count_val_content = count_val.textContent;
 
@@ -14,6 +16,8 @@ const modal_message = document.getElementById("modal_message");
 const final_score = document.getElementById("final_score");
 const reset_btn = document.getElementById("reset_btn");
 
+
+
 let user_score_value = 0;
 let computer_score_value = 0;
 
@@ -24,6 +28,7 @@ const computer_generate = () => {
 };
 
 function compare_picks(user_value){
+    Array.from(marquee).forEach(x => x.style.display = 'none');
 
     if (Number(count_val.textContent) <= 0) return;
 
@@ -72,7 +77,7 @@ function compare_picks(user_value){
         else if (user_score_value < computer_score_value) winner = "computer"
         else winner = null
         
-        showGameOver(winner);
+        setTimeout(() => showGameOver(winner), 500);
     }   
 }
 
@@ -119,10 +124,12 @@ function showGameOver(winner) {
     final_score.textContent = `Final Score:
     You: ${user_score_value} | Computer: ${computer_score_value}
     `;
+    
 }
 
 // Reset Logic
 reset_btn.addEventListener("click", () => {
+    Array.from(marquee).forEach(x => x.style.display = 'block');
     // Reset values
     user_score_value = 0;
     computer_score_value = 0;

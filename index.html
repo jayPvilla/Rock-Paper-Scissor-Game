@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bato Bato Pick by JP</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container">
@@ -14,25 +15,40 @@
         <div class="cards">
             <div class="card" id="user_card">
                 <h2 class="player_header">PLAYER</h3>
-                <span class="score" id="user_score"></span>
-                <div class="player_pick" id="user_pick"></div>
+                <marquee direction="up" scrollamount="5" height="250px" id="user_marquee">
+                    <i class="fa fa-hand-rock-o"></i>
+                    <i class="fa fa-hand-scissors-o"></i>
+                    <i class="fa fa-hand-paper-o"></i>
+                </marquee>
+                <div class="pick_indicator">
+                    <span class="score" id="user_score"></span>
+                    <div class="player_pick" id="user_pick"></div>
+                </div>
             </div>
             <h2 id="vs">VS</h2>
             <div class="card" id="computer_card">
                 <h2 class="player_header">COMPUTER</h3>
-                <span class="score" id="computer_score"></span>
-                <div class="player_pick" id="computer_pick"></div>
+                    <marquee direction="down" scrollamount="5" height="250px" id="computer_marquee">
+                    <i class="fa fa-hand-rock-o"></i>
+                    <i class="fa fa-hand-scissors-o"></i>
+                    <i class="fa fa-hand-paper-o"></i>
+                </marquee>
+                <div class="pick_indicator">
+                    <span class="score" id="computer_score"></span>
+                    <div class="player_pick" id="computer_pick"></div>   
+                </div>
             </div>
         </div>
         <div class="user_panel">
             <h3 class="direction">Choose your move!</h3>
             <p class="move_counting">Move left: <span id="count_val">10</span></p>
             <div class="moves">
-                <button class="user_moves" id="bato_move" value="bato">BATO</button>
-                <button class="user_moves" id="gunting_move" value="gunting">GUNTING</button>
-                <button class="user_moves" id="papel_move" value="papel">PAPEL</button>
+                <button class="user_moves" id="bato_move" value="bato"><i class="fa fa-hand-rock-o"></i> BATO</button>
+                <button class="user_moves" id="gunting_move" value="gunting"><i class="fa fa-hand-scissors-o"></i> GUNTING</button>
+                <button class="user_moves" id="papel_move" value="papel"><i class="fa fa-hand-paper-o"></i> PAPEL</button>
             </div>
         </div>
+
 
         <div id="game_modal">
             <h1 id="modal_message"></h2>
@@ -40,6 +56,13 @@
             <button id="reset_btn">Play Again</button>
         </div>
     </div>
+
+    <footer>
+            <div class="footer_content">
+                <p>&copy; 2026 <span class="highlight">Bato Bato Pick</span>. All Rights Reserved.</p>
+                <p id="footer_dev">Designed & Developed by <span class="dev_name">John Paul</span></p>
+            </div>
+        </footer>
 
     <div id="overlay"></div>
 

@@ -32,10 +32,11 @@ body {
     display: flex;
     min-height: 100vh;
     justify-content: center;
-    flex-direction: column;
+    flex-flow: column wrap;
     align-items: center;
-    flex-wrap: wrap;
     background: url("images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 body::before{
@@ -57,6 +58,7 @@ body::before{
 header {
     width: 100%;
     text-align: center;
+    margin-bottom: 90px;
 }
 
 .game_title {
@@ -66,8 +68,13 @@ header {
     letter-spacing: 5px;
     color: white;
     letter-spacing: 20px;
-    margin-bottom: 100px;
     filter: drop-shadow(1px 1px 5px rgb(157, 0, 255, 0.7));
+}
+
+header #developer {
+    font-family: cursive;
+    font-size: 1.5rem;
+    letter-spacing: 1rem;
 }
 
 .cards {
@@ -89,6 +96,7 @@ header {
     filter: drop-shadow(2px 2px 5px rgb(157, 0, 255, 0.7));
 }
 
+
 .cards .card {
     height: 340px;
     border-radius: 50px;
@@ -106,6 +114,33 @@ header {
 .cards .card .player_header{
     letter-spacing: 10px;
 }
+marquee {
+    display: block;
+    text-align: center; 
+    width: 100%;  
+}
+
+marquee i {
+    display: block;     /* Stack them vertically */
+    margin: 0 auto 4rem auto; /* Centers the block and adds bottom spacing */
+    font-size: 10rem !important;
+    padding: 5px;
+    text-align: center;
+}
+
+marquee .fa {
+    font-size: 10rem !important;
+    margin-right: 6rem;
+    /* Removed the space and added the missing x-offset/blur values */
+    filter: drop-shadow(0px 10px 5px rgba(157, 0, 255, 0.5)); 
+    align-content: center;
+}
+
+/* Fixed the trailing .fa by removing it or adding a property */
+marquee i:last-child {
+    margin-right: 0;
+}
+
 
 .pick_image {
     width: 200px;
@@ -123,6 +158,8 @@ header {
 .user_moves {
     padding: 10px 20px;
     margin: 5px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
@@ -157,4 +194,36 @@ header {
     width: 100%;
     height: 100%;
     z-index: 999;
+}
+
+footer {
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 50px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.footer_content p {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.highlight {
+    font-family: 'Orbitron', sans-serif;
+    color: aqua;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+#footer_dev {
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.dev_name {
+    color: rgb(157, 0, 255);
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(157, 0, 255, 0.6);
 }
