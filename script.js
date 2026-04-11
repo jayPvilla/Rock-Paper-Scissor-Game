@@ -122,7 +122,7 @@ function showGameOver(winner) {
     else modal_message.textContent = "It's a Tie! 🤝";
 
     final_score.textContent = `Final Score:
-    You: ${user_score_value} | Computer: ${computer_score_value}
+    🤖You: ${user_score_value} | 👽Enemy: ${computer_score_value}
     `;
     
 }
